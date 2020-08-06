@@ -38,6 +38,9 @@ using namespace std;
 
 #include "memblock.h"
 
+// Constraint to template by specify a value as one of the parameter
+// must be intergral not float type
+
 /**
  * A function can also define non-type function template parameters.
  */
