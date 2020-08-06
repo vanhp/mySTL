@@ -31,11 +31,10 @@ struct example_class <T *, U *> {
   example_class () { std::cout << "example_class<T*, U*>\n"; }
 };
 
-/*
 template <>
 struct example_class <int, int> {
   example_class () { std::cout << "example_class<int, int>\n"; }
-}; */
+}; 
 
 int main() {
   example_class<int, double> a;     // prints "example_class<T, U>"
@@ -43,7 +42,7 @@ int main() {
   example_class<double, int> c;     // prints "example_class<T, int>"
   example_class<int *, double *> d; // prints "example_class<T*, U*>"
 
-  // example_class <int, int> e;        // prints??
+  example_class <int, int> e;        // prints??
 
   return 0;
 }
