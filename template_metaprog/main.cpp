@@ -10,24 +10,24 @@ const long long factorial_20 = 2432902008176640000LL;
 
 /**
  * Define a "run-time" factorial function.
+ * using recursion
  */
 long long 
-factorial(const long long val,
-          const long long sum = 1) {
+runTimefactorial(const long long val, const long long sum = 1) {
   if (val > 1)
-    return factorial(val - 1, sum * val);
+    return runTimefactorial(val - 1, sum * val);
   else
     return sum;
 }
 
 /**
  * Define a "compile-time" factorial function.
+ * meta programming
  */
 constexpr long long
-cfactorial(const long long in,
-           const long long sum = 1) {
+compileTimefactorial(const long long in,const long long sum = 1) {
   if (in > 1)
-    return cfactorial(in - 1,sum * in);
+    return compileTimefactorial(in - 1,sum * in);
   else
     return sum;
 }
@@ -35,7 +35,7 @@ cfactorial(const long long in,
 /**
  * Check whether the result worked at compile-time.
  */
-enum { compileTimeGeneratedValue = cfactorial(20) };
+enum { compileTimeGeneratedValue = compileTimefactorial(20) };
 static_assert(compileTimeGeneratedValue == factorial_20, "error");
 
 /**
@@ -47,7 +47,8 @@ struct Factorial
        : Factorial<LLn - 1, LLn * LSum>{};
 
 /**
- * This specialized metafunction has a value and does not inherit.
+ * this is the base case to stop recursion
+ * This specialized metafunction has a value and does not self-inherit.
  */
 template<long long LSum> // take LSum as a wild card
 struct Factorial<1, LSum> {
@@ -70,7 +71,7 @@ static_assert(fact == factorial_20, "error");
  */
 int main() {
   // Call the run-time factorial method for 20.
-  assert(factorial(20) == factorial_20);
+  assert(runTimefactorial(20) == factorial_20);
 
   // Print the factorial of 20.
   cout << "factorial(20) = " << factorial_20;
