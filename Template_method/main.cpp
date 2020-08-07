@@ -97,10 +97,7 @@ struct class_C {
     }
 };
 
-/**
- * This method demonstrates the use of template member functions and
- * member function templates.
- */
+
 int main () {
   // Show the use of a template member function.
   container<int> myint(7);
