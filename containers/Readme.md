@@ -1,11 +1,18 @@
 
 # STL containers
 
+Containers are abstract Datatype that have operation define on them
+STL define operations are algorithms, iterators
+
+The iterators task are to coordinate between the container that hold the data and the algorithm that perform the task request by the user
+
   They are classes whose objects can be used to build
   collections of data of same type, like built-in C++ arrays.
   However, these collections also have data and functions because
   they are objects.
   
+
+
 ## Common characteristics of STL containers
 
 Include the following:
@@ -60,75 +67,123 @@ Include the following:
      the container’s elements, allocator and sorting criteria, and is
      very fast and exception-safe.
 
-## Sequential containers
+## STL container devide into groups
 
- vector - Linear and contiguous storage like an array that allows
+  1. Sequential containers
+       - Vector
+       - deque
+       - list
+  2. Associative containers
+       - set
+       - multiset
+       - map
+       - multimap
+
+  3. Derive containers
+       - stack
+       - queue
+       - priority queue
+
+## Sequential containers
+Arrange the data they contain in a linear way where 
+- item position in the container is not related 
+- to the actual value of the data
+- how the order of item store in container depend on the type of container
+
+ #### vector
+
+ - Linear and contiguous storage like an array that allows
  fast insertions and removals at the end only.
   
-*`#include <vector>`*
+ #### list
 
- list - Doubly linked list that allows fast insertions and removals
+ - Doubly linked list that allows fast insertions and removals
  anywhere.
   
-*`#include <list>`*
 
- forward_list - Single linked list that allows fast insertions and
+#### forward_list
+
+ - Single linked list that allows fast insertions and
  removals anywhere.
   
-`#include <forward_list>`
 
- deque - Linear but non-contiguous storage that allows fast
+#### deque
+
+ - Linear but non-contiguous storage that allows fast
  insertions and removals at both ends.
-  
-`#include <deque>`
+
+## Associative Containers
+
+This type of container associate a key to a value but some container e.g. *`multi`* container which allow duplication have multiple keys for a value
+
+They devide into
+- Order container
+- Unorder container
 
 ### Ordered associative containers
 
+The order are implement using operator **`<`** to have balance binary tree to maintain log n operation
+
 #### Set
  
- - Defines where the elements' values are the keys and
+- Defines 1 key where the elements' values are the keys and
  duplicates are not allowed. It has fast lookup using the key.
 
-`#include <set>`
+#### multiset
 
- multiset - Defines where the elements' values are the keys and
- duplicates are allowed. It has fast lookup using the key.
+- Define 1 key where the elements'values are the keys and duplicates are allowed
+ fast lookup using key
 
-`#include <set>`
+#### map 
+- key value mapping a key is map to a value no duplication allow
 
- map - Key-to-value mapping where a single key can only be mapped to
- one value,
+#### multimap
 
-`#include <map>`
+- Define key to value mapping a key can be mapped to multiple values duplication allow
 
- multimap - Key-to-value mapping where a single key can be mapped to
- many values.
+### Unordered associative containers
 
-`#include <map>`
+These are implement using hashing function to generate psuedo random number as index of array and use linklist or binary tree to alliviate problem of multiple key hash to the same index
 
-## Unordered associative containers
+- #### unordered_set
+- #### unordered_multiset 
+- #### unordered_map 
+- #### unorder_multimap
 
- set - Defines where the elements' values are the keys and
- duplicates are not allowed. It has fast lookup using the key.
-  `#include <unordered_set>`
- multiset - Defines where the elements' values are the keys and
- duplicates are allowed. It has fast lookup using the key.
-  `#include <unordered_set>`
- map - Key-to-value mapping where a single key can only be mapped to
- one value,
-  `#include <unordered_map>`
- multimap - Key-to-value mapping where a single key can be mapped to
- many values.
-    `#include <unordered_map>`
 
-## Adapter containers 
+### Containers and Iterators
 
- stack - First in, last out data structure.
-  `#include <stack>`
- queue - First in, first out data structure.
-  `#include <queue>`
- priority_queue - A queue that maintains items in a sorted order      based on a priority value.
-    `#include <queue>`
+Each container also provide factory method to create iterator that appropiate for the containers
+
+forward
+- begin()
+- end()
+
+reverse
+- rbegin()
+- rend()
+
+## Adapter containers
+
+These provide a familar interface to user by sometime restrict
+the original container functionality
+
+ #### stack 
+
+ - First in, last out data structure.
+ - default implementation is dequeue
+  
+ #### queue 
+
+ - First in, first out data structure.
+ - default implementation is dequeue
+
+ #### priority_queue 
+
+ - A queue that maintains items in a sorted order      based on a priority value.
+  - default implementation is vector
+  
+    
 
 
 
@@ -155,3 +210,4 @@ Include the following:
 <style>h2{color:green;}</style>
 <style>h3{color:yellow;}</style>
 <style>h4{color:coral;}</style>
+<style>h5{color:teal;}</style>
