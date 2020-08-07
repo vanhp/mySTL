@@ -1,16 +1,12 @@
 
-
-
-
-
-# <style>h1{color:lightblue;}</style>STL containers
+# STL containers
 
   They are classes whose objects can be used to build
   collections of data of same type, like built-in C++ arrays.
   However, these collections also have data and functions because
   they are objects.
   
-## <style>h2{color:green;}</style>Common characteristics of STL containers
+## Common characteristics of STL containers
 
 Include the following:
 
@@ -30,7 +26,7 @@ Include the following:
      must provide its own exception handling code for any errors that
      might occur.
 
-### <style>h3{color:yellow;}</style>Common operations of STL containers 
+### Common operations of STL containers 
 
 1. Initialization constructors: Each container supports both
      default and copy constructors, plus a destructor. Containers can be
@@ -88,7 +84,7 @@ Include the following:
 
 ### Ordered associative containers
 
-#### <style>h4{color:coral;}</style>Set
+#### Set
  
  - Defines where the elements' values are the keys and
  duplicates are not allowed. It has fast lookup using the key.
@@ -133,3 +129,29 @@ Include the following:
   `#include <queue>`
  priority_queue - A queue that maintains items in a sorted order      based on a priority value.
     `#include <queue>`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>h1{color:lightblue;}</style>
+<style>h2{color:green;}</style>
+<style>h3{color:yellow;}</style>
+<style>h4{color:coral;}</style>
