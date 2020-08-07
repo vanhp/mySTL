@@ -1,12 +1,18 @@
+<style>h1{color:lightblue;}</style>
+<style>h2{color:green;}</style>
+<style>h3{color:yellow;}</style>
+<style>h4{color:coral;}</style>
 
-# <span style="color:green">STL containers</span>
+# STL containers
 
   They are classes whose objects can be used to build
   collections of data of same type, like built-in C++ arrays.
   However, these collections also have data and functions because
   they are objects.
   
-## <span style="color:lightblue">Common characteristics of STL containers include the following:</span>
+## Common characteristics of STL containers
+
+Include the following:
 
 - 1. They copy the values of their elements when inserted rather than
      maintaining references to these elements. This is called ‘value
@@ -24,19 +30,19 @@
      must provide its own exception handling code for any errors that
      might occur.
 
-## <span style="color:lightblue">Common operations of STL containers include the following: </span>
+### Common operations of STL containers 
 
-- 1. Initialization constructors: Each container supports both
+1. Initialization constructors: Each container supports both
      default and copy constructors, plus a destructor. Containers can be
      initialized with a range of values as well. 
   
-- 2. Size functions: There are 3 functions related to a container’s
+2. Size functions: There are 3 functions related to a container’s
      size. They are: size(), which returns the actual number of
      elements in the container, empty(), checks whether there are any
      elements at all in the container, and max_size(), which returns
      the maximum number of elements the container can contain.
 
-- 3. Comparison operators: The equality and relational operators, ==,
+3. Comparison operators: The equality and relational operators, ==,
      !=, <, <=, >, >= are defined for containers holding the same
      datatype as elements. Two containers are equal if all elements
      are equal and in the same order. The relational operators work
@@ -49,7 +55,7 @@
      order, they are equal and the < or > relational operator returns
      false for whatever it is testing for.
 
-- 4. Assignments and swap() function: When one container is assigned
+4. Assignments and swap() function: When one container is assigned
      to another one, all elements in the source container are copied
      by value into the destination container, and all old elements
      are removed. This takes time.  A faster way to get this done if
@@ -58,7 +64,7 @@
      the container’s elements, allocator and sorting criteria, and is
      very fast and exception-safe.
 
-# <span style="color:teal">Sequential containers</span>
+## Sequential containers
 
  vector - Linear and contiguous storage like an array that allows
  fast insertions and removals at the end only.
@@ -80,9 +86,9 @@
   
 `#include <deque>`
 
-## <span style="color:lightblue">Ordered associative containers </span>
+### Ordered associative containers
 
- ### <span style="color:yellow">Set </span>
+#### Set
  
  - Defines where the elements' values are the keys and
  duplicates are not allowed. It has fast lookup using the key.
@@ -104,7 +110,7 @@
 
 `#include <map>`
 
-## <span style="color:lightblue">Unordered associative containers</span>
+## Unordered associative containers
 
  set - Defines where the elements' values are the keys and
  duplicates are not allowed. It has fast lookup using the key.
@@ -119,7 +125,7 @@
  many values.
     `#include <unordered_map>`
 
-## <span style="color:lightblue">Adapter containers </span>
+## Adapter containers 
 
  stack - First in, last out data structure.
   `#include <stack>`
