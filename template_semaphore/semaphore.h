@@ -10,16 +10,20 @@ public:
 
   /**
    * Implement the semaphore "P" operation.
+   * wait until count > 0, then acguire it
+   * then decrement the count atomically
    */
   void acquire();
 
   /**
    * Implement the semaphore "V" operation.
+   * atomically increment the count of semaphore
+   * release one of waiting on thread
    */
   void release();
 
 private:
-  std::mutex m_;
-  std::condition_variable cond_;
+  std::mutex m_; //mutually exclude 
+  std::condition_variable cond_; // variable wake up  on a condition
   int n_;
 };

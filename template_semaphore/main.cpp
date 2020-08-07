@@ -22,6 +22,26 @@ static const int num_threads = 2;
  */
 static const size_t max_iterations = 4;
 
+
+/**
+ * Run the ping/pong algorithm.
+ */
+static void
+play_pingpong (size_t max_iterations,
+               const std::string &string_to_print,
+               semaphore &my_semaphore,
+               semaphore &other_semaphore) {
+  for (int loops_done = 1; loops_done <= max_iterations; ++loops_done) {
+      my_semaphore.acquire();
+      // Print the message.
+      std::cout << string_to_print << "(" << loops_done << ")" << std::endl;
+      other_semaphore.release();
+  }
+}
+
+
+
+
 /**
  * This example shows the use of C++ variadic templates in the context
  * of passing a method and its parameters to the std::thread class.
@@ -57,21 +77,5 @@ main (int argc, char *argv[]) {
 
   std::cout << "Done!" << std::endl;
   return 0;
-}
-
-/**
- * Run the ping/pong algorithm.
- */
-static void
-play_pingpong (size_t max_iterations,
-               const std::string &string_to_print,
-               semaphore &my_semaphore,
-               semaphore &other_semaphore) {
-  for (int loops_done = 1; loops_done <= max_iterations; ++loops_done) {
-      my_semaphore.acquire();
-      // Print the message.
-      std::cout << string_to_print << "(" << loops_done << ")" << std::endl;
-      other_semaphore.release();
-  }
 }
 
