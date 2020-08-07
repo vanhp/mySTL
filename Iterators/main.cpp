@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+
+#include <list>
+#include <algorithm>
+
 using namespace std;
 
 /**
@@ -91,6 +95,61 @@ namespace my_copy {
   }
 }
 
+
+int main_trait() {
+    list<double> dList{10.1, 20.2, 30.3, 40.4, 50.5};
+
+    for (auto d : dList)
+        cout << d << ' ';
+    cout << endl;
+
+    // iterator trait
+    list<double>::iterator dListIter = dList.begin();
+    // could use
+    // auto dListIter = dList.begin();
+    *dListIter = 100.1;
+
+    for (auto d : dList)
+        cout << d << ' ';
+    cout << endl;
+
+    list<double>::const_iterator dListConstIter = dList.cbegin();
+    // could use
+    // auto dListConstIter = dList.cbegin();
+
+    list<double>::value_type d = *dListConstIter;
+    // could use
+    // auto d = *dListConstIter;
+
+    // Compile error!
+    // *dListConstIter = d;
+
+    return 0;
+}
+
+typedef vector<long> container;
+
+/**
+ * This example shows some disadvantages with STL iterators outlined above.
+ */
+int main_disadvantage() {
+    // Create an empty container.
+    container c (0);
+
+    // Get an iterator to the beginning of the container.
+    container::const_iterator it = c.begin();
+
+    // Exceed the bounds of the iterator! exception here
+    do {
+        cout << "value = " << *it++ << endl;
+    } while (it != c.end());
+
+    // Try to sort the container.
+    // sort algorithm expect random access iterator
+    sort(c.begin(), c.end());
+
+    return 0;
+}
 /**
  * This example shows how to use the copy() algorithm to copy the
  * contents of one built-in array to another.
@@ -121,6 +180,12 @@ int main () {
     cout << i << ' ';
 
   cout << endl;
+  
+  main_trait();
+  main_disadvantage();
+
+  return 0;
+
 }
 
 
